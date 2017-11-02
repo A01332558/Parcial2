@@ -1,6 +1,8 @@
+<h2> Lista de Examenes </h2>
 
 <ul>
 	{{#each model as |exam|}}
-			{{form-exam exam=exam}}
+		{{form-exam exam=exam}}
 	{{/each}}
 </ul>
+{{outlet}}

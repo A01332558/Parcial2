@@ -1,9 +1,9 @@
+
 <form>
 	Nombre: {{input type="Text" value=exam.nombre}} <br><br>
 	Fecha: {{input type="Text" value=exam.fecha}} <br><br>
-
-	<button>Quitar</button>
-
+	<button {{action 'borrar' exam.id}}>Quitar</button>
+	{{#link-to 'exam-detail' exam.id}}<button> Detalles </button>{{/link-to}}
 	<hr>
 
 
