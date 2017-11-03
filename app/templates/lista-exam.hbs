@@ -2,7 +2,9 @@
 
 <ul>
 	{{#each model as |exam|}}
-		{{form-exam exam=exam}}
+		{{exam-ficha exam=exam}}
 	{{/each}}
 </ul>
+
+<button {{action 'nuevo'}}>Examen Nuevo</button>
 {{outlet}}

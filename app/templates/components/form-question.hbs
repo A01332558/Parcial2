@@ -1,1 +1,6 @@
-{{yield}}
+{{input type="text" value=pregunta.nombre}}
+<form>
+	{{#each pregunta.opciones as |opcion|}}
+		<input type="text" name="" value=opcion.nombre>
+	{{/each}}
+</form>
