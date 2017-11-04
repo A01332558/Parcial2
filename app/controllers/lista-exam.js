@@ -9,6 +9,15 @@ export default Ember.Controller.extend({
 			});
 			exam.save();
 			this.transitionToRoute('exam-detail', exam.id);
-		}
-	}
+		},
+		
+	},
+	// totalExamen: Ember.computed('model.[]',{
+	// 		get: function(){
+	// 			return "Total:" + this.get('model.length') + "examenes";
+	// 		},
+	// 		set: function(key, value){
+	// 			return value;
+	// 		}
+	// 	}),
 });

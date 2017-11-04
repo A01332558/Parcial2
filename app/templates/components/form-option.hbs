@@ -1,1 +1,10 @@
-{{yield}}
+<style type="text/css">
+	tab1 { padding-left: 2em; }
+</style>
+
+
+{{#if new}}
+	<tab1> {{input type="checkbox" checked=opcion.correcta}} {{opcion.num}} {{input type="text" value=opcion.nombre}} </tab1>
+{{else}}
+	<tab1>Respuesta correcta: {{opcion.num}} {{opcion.nombre}} </tab1>
+{{/if}}

@@ -5,10 +5,11 @@ export default Ember.Component.extend({
 	actions: {
     borrar(){
       this.get('exam').destroyRecord();
+      this.sendAction('seBorro');
     },
     guardar(){
     	let exam = this.get('exam');
-    	alert(exam.nombre);
+    	// alert(exam.nombre);
     	exam.save().then(()=>{
         return Ember.RSVP.all(exam.get('preguntas').invoke('save')).then((arrOpt)=>{
           for(var i = 0, len = arrOpt.length;i<len; i++){
@@ -23,25 +24,29 @@ export default Ember.Component.extend({
     },
     pnueva(){
       let pregunta = this.get('store').createRecord('question', {
-        exam: this.get('exam')
+        examen: this.get('exam')
       });
       let res1= pregunta.get('opciones').createRecord({
-        nombre: "1)",
+        num: "1)",
+        nombre: "",
         pregunta: pregunta,
-        correcta: true, 
+        correcta: false, 
       });
       let res2= pregunta.get('opciones').createRecord({
-        nombre: "2)",
+        num: "2)",
+        nombre: "",
         pregunta: pregunta,
         correcta: false, 
       });
       let res3= pregunta.get('opciones').createRecord({
-        nombre: "3)",
+        num: "3)",
+        nombre: "",
         pregunta: pregunta,
         correcta: false, 
       });
       let res4= pregunta.get('opciones').createRecord({
-        nombre: "4)",
+        num: "4)",
+        nombre: "",
         pregunta: pregunta,
         correcta: false, 
       });

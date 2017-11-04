@@ -1,6 +1,23 @@
-{{input type="text" value=pregunta.nombre}}
-<form>
-	{{#each pregunta.opciones as |opcion|}}
-		<input type="text" name="" value=opcion.nombre>
-	{{/each}}
-</form>
+
+{{#if pregunta.isNew}}
+
+	Pregunta: {{input type="text" value=pregunta.nombre}} <button {{action 'remover'}}>Remover</button> {{!-- <br><br>  --}}{{!-- {{totalOpciones}} --}}
+	<form>
+		{{#each pregunta.opciones as |opcion|}}
+			{{form-option opcion=opcion new=true}}
+		{{/each}}
+	</form>
+
+{{else}}
+	
+	Pregunta: {{pregunta.nombre}} <button {{action 'remover'}}>Remover</button> 
+
+	<form>
+		{{#each resCorrecta as |opcion|}}
+			{{form-option opcion=opcion new=false}}
+		{{/each}}
+	</form>
+
+{{/if}}
+
+<br>
